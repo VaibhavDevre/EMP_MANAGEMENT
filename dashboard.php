@@ -39,6 +39,9 @@ if (!isset($_SESSION['id'])) {
     <div class="one">
       <a href="logout.php">LOG OUT </a>
     </div>
+    <div class="one">
+      <a href="abus.php">ABOUT US</a>
+    </div>
   </div>
 </body>
 
