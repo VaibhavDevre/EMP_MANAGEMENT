@@ -20,19 +20,24 @@
 
       $con = new mysqli ($lh,$uname,$pass,$db);
 
+
         if($con){
         //  echo 'connection succesfull !';
+        //  $query = "INSERT INTO emp2(username,password,email,phone) VALUES ('$un','$pas','$em','$phn')";
 
-          $query = "INSERT INTO emp2(username,password,email,phone) VALUES ('$un','$pas','$em','$phn')";
+          $query2 ="SELECT * FROM emp2 WHERE email='$em'";
 
-          $res =mysqli_query($con,$query);
+          $res2 =mysqli_query($con,$query2);
 
-          if($res){
-              echo 'values added';
+          $fatch=mysqli_fetch_assoc($res2);
+
+          if($fatch){
+            echo "YOU ALREADY HAVE AN ACCCOUNT !";
           }
-          else 
-          {
-              echo 'values not inserted';
+          
+          else{
+             $query = "INSERT INTO emp2(username,password,email,phone) VALUES ('$un','$pas','$em','$phn')";
+             header("location:emplog.php");
           }
         }
 
